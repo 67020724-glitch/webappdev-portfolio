@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>kamolchanok comnak — UI/UX Designer</title>
+  <meta name="description" content="Portfolio ของ kamolchanok comnak — UI/UX Designer. Clean dark hero, projects, contact."/>
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --panel:#171717;
+      --muted:#9d9d9d;
+      --accent:#CE7E5A;
+      --glass: rgba(255,255,255,0.03);
+      --card: #111;
+      --radius:18px;
+      --max-width:1200px;
+      --gap:24px;
+      --text:#e9e9e9;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", system-ui, -apple-system, "Noto Sans Thai", sans-serif;
+      background: linear-gradient(180deg,#0b0b0c 0%, #0f0f10 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .frame {
+      width:100%;
+      max-width: calc(var(--max-width) + 80px);
+      border-radius:22px;
+      padding:20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 4px solid rgba(255,255,255,0.06);
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:auto;
+      background: linear-gradient(180deg, #0f0f10 0%, #0d0d0d 100%);
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:22px 28px;
+      gap:16px;
+    }
+    .logo{ 
+      color:var(--accent); 
+      font-weight:700; 
+      letter-spacing:0.6px;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      opacity:0.95;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:0.95rem;
+      padding:6px 8px;
+      transition: color 0.3s ease;
+    }
+    .btn-outline{
+      border:1px solid rgba(255,255,255,0.08);
+      padding:8px 12px;
+      border-radius:10px;
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--accent), #CE7E5A);
+      color:white;
+      padding:8px 14px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 6px 18px rgba(255,122,0,0.18);
+      transition: transform 0.2s ease;
+    }
+    .btn-primary:hover{
+      transform: translateY(-2px);
+    }
+
+    .hero{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      padding:40px 40px;
+      position:relative;
+      min-height:340px;
+      background: radial-gradient(800px 300px at 75% 60%, rgba(255,122,0,0.04), transparent 80%);
+      border-top:1px solid rgba(255,255,255,0.02);
+    }
+
+    .hero-left{
+      flex:1 1 55%;
+      max-width:700px;
+    }
+    .hi { color:var(--muted); font-size:0.95rem; margin:0 0 8px 0;}
+    .name { font-size:3rem; margin:0; color:var(--accent); font-weight:800; letter-spacing:0.6px;}
+    .role { font-size:2.4rem; margin:8px 0 18px 0; color: #fff; font-weight:700;}
+    .meta { color:var(--muted); margin-bottom:20px; max-width:520px; }
+
+    .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+
+    .hero-right{
+      width:360px;
+      flex:0 0 360px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      justify-content:center;
+    }
+
+    .highlight-card{
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:14px;
+      padding:20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .highlight-card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+
+    .highlight-card h3{
+      margin:0 0 12px 0;
+      color:var(--accent);
+      font-size:1.1rem;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .highlight-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.6;
+    }
+
+    .highlight-card ul{
+      margin:8px 0 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    .highlight-card ul li{
+      margin-bottom:6px;
+    }
+
+    .icon{
+      display:inline-block;
+      font-size:1.3rem;
+    }
+
+    .stats {
+      display:flex;
+      gap:12px;
+      margin-top:26px;
+      align-items:stretch;
+      flex-wrap:wrap;
+    }
+    .stat{
+      background: rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);
+      padding:16px 18px;
+      border-radius:12px;
+      min-width:140px;
+    }
+    .stat h4{ margin:0; color:var(--accent); font-size:1.1rem; }
+    .stat p{ margin:8px 0 0 0; color:var(--muted); font-size:0.88rem; }
+
+    main{ padding:28px 40px 48px 40px; }
+    .section { margin-bottom:34px; }
+    .section h2{ margin:6px 0 18px 0; color:#fff; font-size:1.4rem;}
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+    .project{
+      background:var(--card);
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .18s ease, box-shadow .18s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .project:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(0,0,0,0.6); }
+    .project img{ width:100%; height:160px; object-fit:cover; display:block; filter:brightness(0.95); }
+    .project .pbody{ padding:14px; }
+    .project .pbody h3{ margin:0 0 8px 0; color:var(--accent); font-size:1.05rem; }
+    .project .pbody p{ margin:0; color:var(--muted); font-size:0.95rem; }
+
+    .testimonial{
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .test-quote{ font-style:italic; color:var(--muted); }
+    .cta-wrap{ text-align:right; margin-top:18px; }
+
+    footer{ 
+      padding:18px 40px; 
+      color:var(--muted); 
+      font-size:0.9rem; 
+      border-top:1px solid rgba(255,255,255,0.02);
+      text-align:center;
+    }
+
+    @media (max-width:980px){
+      .hero{flex-direction:column; align-items:flex-start; padding:28px;}
+      .hero-right{ width:100%; flex:1 1 auto; }
+      .name{font-size:2.2rem}
+      .role{font-size:1.6rem}
+    }
+    @media (max-width:640px){
+      body{padding:18px}
+      header{padding:12px 16px; flex-direction:column;}
+      nav{flex-wrap:wrap; justify-content:center;}
+      .container{border-radius:12px}
+      .hero-right{ order:2; width:100%; }
+      .hero-left{ width:100% }
+      .projects-grid{ grid-template-columns: repeat(1, minmax(0,1fr)); }
+      .name{font-size:1.8rem}
+      .role{font-size:1.4rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="frame" role="region" aria-label="Portfolio frame">
+    <div class="container">
+      <header>
+        <a href="#home" class="logo">Portfolio</a>
+        <nav aria-label="Main navigation">
+          <a class="btn-primary" href="#home">Home</a>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero" id="home" aria-labelledby="hero-heading">
+        <div class="hero-left">
+          <p class="hi">Hi I am</p>
+          <h1 class="name">Kamolchanok Comnak</h1>
+          <div class="role">UI/UX Designer</div>
+
+          <div class="stats" aria-hidden="false">
+            <div class="stat"><h4>1+</h4><p>Years Design</p></div>
+            <div class="stat"><h4>3</h4><p>Projects</p></div>
+          </div>
+        </div>
+
+        <!-- Highlight Cards -->
+        <div class="hero-right">
+          <div class="highlight-card">
+            <h3><span class="icon">🎨</span> Design Focus</h3>
+            <p>ชื่นชอบการออกแบบที่เน้นผู้ใช้เป็นศูนย์กลาง ผสานความสวยงามกับการใช้งานจริง</p>
+          </div>
+
+          <div class="highlight-card">
+            <h3><span class="icon">⚡</span> Skills & Tools</h3>
+            <ul>
+              <li>Figma</li>
+              <li>User Research & Testing</li>
+              <li>Prototyping & Wireframing</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN CONTENT -->
+      <main>
+        <!-- Projects -->
+        <section id="projects" class="section" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Selected Projects</h2>
+          <div class="projects-grid">
+            
+            <!-- Project 1 - Whisk Cafe -->
+            <a href="https://www.figma.com/proto/CQpbstXbbDZ8PakPihYhBb/Whisk---Warm-Cafe--67020724-%E0%B8%81%E0%B8%A1%E0%B8%A5%E0%B8%8A%E0%B8%99%E0%B8%81-%E0%B8%84%E0%B8%B3%E0%B8%99%E0%B8%B2%E0%B8%84-?node-id=87-1335&p=f&t=SPpOq0nt0jcYdVMs-0&scaling=scale-down&content-scaling=fixed&page-id=79%3A818" target="_blank" class="project">
+              <!-- ใช้รูปจาก Unsplash สำหรับคาเฟ่ -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23D4A574;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23CE7E5A;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' width='400' height='300'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='64' fill='white'%3E☕%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='white' font-weight='600'%3EWhisk Cafe%3C/text%3E%3C/svg%3E" alt="Whisk Cafe Project"/>
+              <div class="pbody">
+                <h3>Whisk - Warm Cafe</h3>
+                <p>Mobile app UI/UX design for modern cafe experience</p>
+              </div>
+            </a>
+
+            <!-- Project 2 - Show case-->
+            <a href="https://www.figma.com/proto/ThDD2GXJPVn5c51uctZGeT/Untitled?node-id=28-34&p=f&t=TPvm3Xhu27jAU0AC-0&scaling=min-zoom&content-scaling=fixed&page-id=28%3A21" target="_blank" class="project">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='grad2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23A67C52;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23CE7E5A;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad2)' width='400' height='300'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='64' fill='white'%3E👾%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='white' font-weight='600'%3EShow cas%3C/text%3E%3C/svg%3E" alt="Show cas Project"/>
+              <div class="pbody">
+                <h3>Show case ICT</h3>
+                <p>Web app UI/UX design for modern web Show case ICT experience</p>
+              </div>
+            </a>
+
+            <!-- Project 3 -->
+            <a href="https://www.figma.com/proto/ZGaRScKL0qgsfNjl7hbECf/Untitled?node-id=1-2&p=f&t=TPvm3Xhu27jAU0AC-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2" target="_blank" class="project">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cdefs%3E%3ClinearGradient id='grad3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23B68D6D;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23CE7E5A;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad3)' width='400' height='300'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='64' fill='white'%3E🚗%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='white' font-weight='600'%3EDashboard%3C/text%3E%3C/svg%3E" alt="Project 3"/>
+              <div class="pbody">
+                <h3>Dashboard drive</h3>
+                <p>Dashboard and driving data visualization</p>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+      <footer>
+        © <span id="year"></span> Kamolchanok Comnak — UI/UX Designer
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+   document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const href = a.getAttribute('href');
+    if(href.length>1){
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+
+// เพิ่ม Active Nav
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+
+window.addEventListener('scroll', ()=>{
+  let current = '';
+  sections.forEach(section=>{
+    const sectionTop = section.offsetTop - 80; // ปรับ offset
+    if(pageYOffset >= sectionTop) current = section.getAttribute('id');
+  });
+
+  navLinks.forEach(link=>{
+    link.classList.remove('active');
+    if(link.getAttribute('href') === '#' + current){
+      link.classList.add('active');
+    }
+  });
+});
+  </script>
+</body>
+</html>
+
